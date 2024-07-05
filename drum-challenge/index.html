@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Drum-Challange</title>
+</head>
+<body>
+    <div class="container" >
+     <div class="data-keys">
+        <div class='key' id="k-65"><span>A</span><p>BOOM</p></div>
+        <div class='key' id="k-83"><span>S</span><p>CLAP</p></div>
+        <div class='key' id="k-68"><span>D</span><p>HIHAT</p></div>
+        <div class='key' id="k-70"><span>F</span><p>KICK</p></div>
+        <div class='key' id="k-71"><span>G</span><p>OPENHAT</p></div>
+        <div class='key' id="k-72"><span>H</span><p>RIDE</p></div>
+        <div class='key' id="k-74"><span>J</span><p>SNARE</p></div>
+        <div class='key' id="k-75"><span>K</span><p>TOM</p></div>
+    </div>
+     <audio src="audio/boom.wav" id="key-65"></audio>
+     <audio src="audio/clap.wav" id="key-83"></audio>
+     <audio src="audio/hihat.wav" id="key-68"></audio>
+     <audio src="audio/kick.wav" id="key-70"></audio>
+     <audio src="audio/openhat.wav" id="key-71"></audio>
+     <audio src="audio/ride.wav" id="key-72"></audio>
+     <audio src="audio/snare.wav" id="key-74"></audio>
+     <audio src="audio/tom.wav" id="key-75"></audio>
+
+
+    </div>
+    
+</body>
+<script>
+   document.body.addEventListener('keydown', (e)=> {
+    const keycode = e.keyCode;
+    const audio = document.querySelector(`#key-${keycode}`)
+    const key = document.querySelector(`#k-${keycode}`)
+    key.classList.add('play')
+    if(!audio){
+        return ;
+    }
+    else { 
+        audio.currentTime = 0; //rewinds every time we press the key
+        audio.play()
+    }
+   })
+
+//    const divs = document.querySelectorAll('.key')
+//    divs.forEach(div => {
+//     div.addEventListener('click', (e) =>{
+//     //  e.stopPropagation();
+//      console.log(e.target);
+//     }, {capture: true})
+
+//    })
+
+//    document.querySelector('span').addEventListener('click', () => {console.log('hey');})
+   document.body.addEventListener('click', (e) => {
+      if(e.target.parentElement.id || e.target.id) {
+      const divId = e.target.parentElement.id || e.target.id;
+       const keycode = divId.split('-')[1]
+      const audio = document.querySelector(`#key-${keycode}`)
+    const key = document.querySelector(`#k-${keycode}`)
+    key.classList.add('play')
+    if(!audio){
+        return ;
+    }
+    else { 
+        audio.currentTime = 0; //rewinds every time we press the key
+        audio.play()
+    }
+   }
+   else return ;
+   })
+ 
+   const keys = document.querySelectorAll('.key')
+   keys.forEach((key) => {
+   
+    key.addEventListener('transitionend', () => {
+        key.classList.remove('play')
+    })
+   })
+</script>
+</html>
