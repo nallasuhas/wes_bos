@@ -24,23 +24,43 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    text-align: center;
+    /* text-align: center; */
+    
     transform: rotate(var(--rotation));
     font-size: 1.5rem;
    
 }
+.clock .number div{
+  --rotation: 0;
+
+  width: fit-content;
+  margin-inline: auto;
+  transform: rotate(var(--rotation));
+
+}
 /*to position all the numbers in their respective place on a clock*/
 .clock .number1 { --rotation: 30deg; }
+.clock  .number1 .div1{--rotation: -30deg;}
 .clock .number2 { --rotation: 60deg; }
+.clock .number2 .div2{--rotation: -60deg;}
 .clock .number3 { --rotation: 90deg; }
+.clock .number3 .div3{--rotation: -90deg;}
 .clock .number4 { --rotation: 120deg; }
+.clock  .number4 .div4{--rotation: -120deg;}
 .clock .number5 { --rotation: 150deg; }
+.clock .number5 .div5{--rotation: -150deg;}
 .clock .number6 { --rotation: 180deg; }
+.clock  .number6  .div6{--rotation: -180deg;}
 .clock .number7 { --rotation: 210deg; }
+.clock .number7  .div7{--rotation: -210deg;}
 .clock .number8 { --rotation: 240deg; }
+.clock .number8 .div8{--rotation: -240deg;}
 .clock .number9 { --rotation: 270deg; }
+.clock .number9 .div9{--rotation: -270deg;}
 .clock .number10 { --rotation: 300deg; }
+.clock .number10  .div10{--rotation: -300deg;}
 .clock .number11 { --rotation: 330deg; }
+.clock .number11 .div11{--rotation: -330deg;}
 
 .clock .hand {
     --rotation: 0;
